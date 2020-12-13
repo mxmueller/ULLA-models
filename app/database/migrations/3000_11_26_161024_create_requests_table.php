@@ -18,7 +18,6 @@ class CreateRequestsTable extends Migration
         $table->unsignedBigInteger('request_comment_id')->nullable();
         $table->unsignedBigInteger('granted_comment_id')->nullable();
         $table->unsignedBigInteger('rejected_comment_id')->nullable();
-        $table->unsignedBigInteger('period_id');
         $table->boolean('granted')->nullable();
         $table->boolean('rejected')->nullable();
         $table->timestamps();

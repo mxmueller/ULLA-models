@@ -22,7 +22,6 @@ Route::get('/request_interface', function () {
     return view('request_interface');
 });
 
-
 Route::post('/request_validation', [request_validation::class, 'request_validation_unit'])->name('request_validation.unit');
 
 // Development / Unit Routes
