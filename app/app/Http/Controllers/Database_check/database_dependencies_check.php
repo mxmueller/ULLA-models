@@ -14,17 +14,14 @@ class database_dependencies_check extends Controller
 {
     public function check () {
 
-        $test = Request_Alias::find(2);
-        $test_comment = $test->comment;
+        // ANCHOR Request use:
+        // $test = Request_Alias::find(3);
+        // $requst = $test->request_comment;
+        // $rejected = $test->rejected_comment;
+        // $granted = $test->granted_comment;
+        // dd($test, $requst, $rejected, $granted);
 
-        dd($test, $test_comment);
+        dd(Request_Alias::find(1)->rejected_comment);
 
-        
-        // $comment = new Comment;
-        // $comment->comments_compressed_text = "Test Name";
-        // $comment->save();
-
-        // $request = new Request_Alias;
-        // $comment->request()->save($request);
     }
 }

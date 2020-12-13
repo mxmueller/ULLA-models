@@ -15,11 +15,21 @@ class CreateRequestsTable extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
         $table->bigIncrements('id');
-        $table->unsignedBigInteger('comment_id');
+        $table->unsignedBigInteger('request_commentID')->nullable();
+        $table->unsignedBigInteger('granted_commentID')->nullable();
+        $table->unsignedBigInteger('rejected_commentID')->nullable();
+        $table->boolean('granted')->nullable();
+        $table->boolean('rejected')->nullable();
         $table->timestamps();
 
-        $table->foreign('comment_id')->references('id')->on('comments')
+        $table->foreign('request_commentID')->references('id')->on('comments')
             ->onDelete('cascade');
+
+        $table->foreign('granted_commentID')->references('id')->on('comments')
+        ->onDelete('cascade');
+
+        $table->foreign('rejected_commentID')->references('id')->on('comments')
+        ->onDelete('cascade');
         });
     }
 
