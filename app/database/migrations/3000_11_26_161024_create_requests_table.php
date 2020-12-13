@@ -15,20 +15,24 @@ class CreateRequestsTable extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
         $table->bigIncrements('id');
-        $table->unsignedBigInteger('request_commentID')->nullable();
-        $table->unsignedBigInteger('granted_commentID')->nullable();
-        $table->unsignedBigInteger('rejected_commentID')->nullable();
+        $table->unsignedBigInteger('request_comment_id')->nullable();
+        $table->unsignedBigInteger('granted_comment_id')->nullable();
+        $table->unsignedBigInteger('rejected_comment_id')->nullable();
+        $table->unsignedBigInteger('period_id');
         $table->boolean('granted')->nullable();
         $table->boolean('rejected')->nullable();
         $table->timestamps();
 
-        $table->foreign('request_commentID')->references('id')->on('comments')
+        $table->foreign('request_comment_id')->references('id')->on('comments')
             ->onDelete('cascade');
 
-        $table->foreign('granted_commentID')->references('id')->on('comments')
+        $table->foreign('granted_comment_id')->references('id')->on('comments')
         ->onDelete('cascade');
 
-        $table->foreign('rejected_commentID')->references('id')->on('comments')
+        $table->foreign('rejected_comment_id')->references('id')->on('comments')
+        ->onDelete('cascade');
+
+        $table->foreign('period_id')->references('id')->on('periods')
         ->onDelete('cascade');
         });
     }
