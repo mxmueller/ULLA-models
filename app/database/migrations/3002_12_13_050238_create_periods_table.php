@@ -18,6 +18,8 @@ class CreatePeriodsTable extends Migration
             $table->dateTime('start_tstmp');
             $table->dateTime('end_tstmp');
             $table->timestamps();
+
+            $table->foreign('id')->references('id')->on('requests');
         });
     }
 

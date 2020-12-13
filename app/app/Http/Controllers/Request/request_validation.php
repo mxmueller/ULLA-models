@@ -11,6 +11,6 @@ use App\Models\Request as Request_Alias;
 class request_validation extends Controller
 {
     public function request_validation_unit(Request $request) {
-
+        dd($request);
     }
 }

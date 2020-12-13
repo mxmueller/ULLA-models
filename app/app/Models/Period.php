@@ -14,6 +14,6 @@ class Period extends Model
     // Usage: Period::find(x)->request
     public function request()
     {
-        return $this->hasOne(Request::class, 'period_id', 'id');
+        return $this->belongsTo(Request::class, 'id', 'id');
     }
 }

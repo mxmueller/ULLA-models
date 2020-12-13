@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     // ----------------------------------------------------------------
-    // ANCHOR
+    // ANCHOR Usage find Comment->comment_x
     // Usage: Comment::find(x)->comment_x
 
     public function comment_request()

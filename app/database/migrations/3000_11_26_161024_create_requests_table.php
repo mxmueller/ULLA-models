@@ -31,9 +31,6 @@ class CreateRequestsTable extends Migration
 
         $table->foreign('rejected_comment_id')->references('id')->on('comments')
         ->onDelete('cascade');
-
-        $table->foreign('period_id')->references('id')->on('periods')
-        ->onDelete('cascade');
         });
     }
 
