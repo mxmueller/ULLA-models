@@ -17,11 +17,11 @@ class Comment extends Model
 
     public function comment_granted()
     {
-        return $this->belongsTo(Comment::class, 'granted_comment_id', 'id');
+        return $this->hasOne(Comment::class, 'granted_comment_id', 'id');
     }
 
     public function comment_rejected()
     {
-        return $this->belongsTo(Comment::class, 'rejected_comment_id', 'id');
+        return $this->hasOne(Comment::class, 'rejected_comment_id', 'id');
     }
 }

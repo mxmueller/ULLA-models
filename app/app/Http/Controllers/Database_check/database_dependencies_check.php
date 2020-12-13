@@ -15,7 +15,7 @@ class database_dependencies_check extends Controller
 {
     public function check () {
 
-        // dd(Period::find(2)->request);
+        dd(Request_Alias::find(1)->human_resource);
 
     }
 }

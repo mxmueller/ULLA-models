@@ -10,7 +10,7 @@ class Request extends Model
     use HasFactory;
 
     // --------------------------------------------------------------------
-    // ANCHOR
+    // ANCHOR Usage find request->comment
     // Usage: Request::find(x)->comment_x
 
     public function request_comment()
@@ -29,11 +29,20 @@ class Request extends Model
     }
 
     // --------------------------------------------------------------------
-    // ANCHOR
+    // ANCHOR Usage find request->period
     // Usage: Request::find(x)->period
 
     public function period()
     {
         return $this->belongsTo(Period::class, 'period_id', 'id');
+    }
+
+    // ----------------------------------------------------------------
+    // ANCHOR Usage find request->human_resource
+    // Usage: Request::find(x)->human_resource
+
+    public function human_resource()
+    {
+        return $this->hasOne(Human_resource::class, 'id', 'id');
     }
 }
