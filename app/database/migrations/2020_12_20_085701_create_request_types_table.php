@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePeriodsTable extends Migration
+class CreateRequestTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreatePeriodsTable extends Migration
      */
     public function up()
     {
-        Schema::create('periods', function (Blueprint $table) {
+        Schema::create('request_types', function (Blueprint $table) {
             $table->id();
-            $table->datetime('start_tstmp');
-            $table->datetime('end_tstmp');
-            $table->datetime('over_handing_tstmp');
-            $table->boolean('half_day');
+            $table->string('request_type');
+            $table->string('description');
             $table->timestamps();
-
-            $table->foreign('id')->references('id')->on('requests');
         });
     }
 
@@ -32,6 +28,6 @@ class CreatePeriodsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('periods');
+        Schema::dropIfExists('request_types');
     }
 }

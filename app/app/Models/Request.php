@@ -11,6 +11,15 @@ class Request extends Model
 
     // --------------------------------------------------------------------
     // ANCHOR Usage find request->comment
+    // Usage: Request::find(x)->request_type
+
+    public function request_type()
+    {
+        return $this->belongsTo(Request_type::class, 'request_type_id', 'id');
+    }
+
+    // --------------------------------------------------------------------
+    // ANCHOR Usage find request->comment
     // Usage: Request::find(x)->comment_x
 
     public function request_comment()

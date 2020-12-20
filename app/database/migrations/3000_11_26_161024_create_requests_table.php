@@ -15,12 +15,16 @@ class CreateRequestsTable extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
         $table->bigIncrements('id');
+        $table->unsignedBigInteger('request_type_id')->nullable();
         $table->unsignedBigInteger('request_comment_id')->nullable();
         $table->unsignedBigInteger('granted_comment_id')->nullable();
         $table->unsignedBigInteger('rejected_comment_id')->nullable();
         $table->boolean('granted')->nullable();
         $table->boolean('rejected')->nullable();
         $table->timestamps();
+
+        $table->foreign('request_type_id')->references('id')->on('request_types')
+        ->onDelete('cascade');
 
         $table->foreign('request_comment_id')->references('id')->on('comments')
             ->onDelete('cascade');
